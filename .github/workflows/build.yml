@@ -1,5 +1,6 @@
 name: SonarQube Cloud
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -10,6 +11,8 @@ jobs:
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
+      - name: envvvvv
+        run: env
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
