@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build and analyze
-    runs-on: codebuild-test-with-github-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: test-custom-image-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: envv
         run: env
