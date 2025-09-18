@@ -1,4 +1,4 @@
-name: Check Run Workflow
+name: Check Suite
 on:
   check_suite:
     types: [completed]
@@ -7,5 +7,13 @@ jobs:
     name: Check Run Workflow
     runs-on: ubuntu-latest
     steps:
-      - name: env
-        run: env
+      - env:
+          DESCRIPTION: ${{ github.event.check_suite }}
+          CONCLUSION: ${{ github.event.check_suite.conclusion  }}
+          SHA: ${{ github.event.check_suite.head_sha }}
+          STATUS: ${{ github.event.check_suite.status }}
+        run: |
+          echo DESCRIPTION: $DESCRIPTION
+          echo CONCLUSION: $CONCLUSION
+          echo SHA: $SHA
+          echo STATUS: $STATUS

@@ -1,13 +1,17 @@
-name: Check Status (success)
+name: Check Status
 on:
   status
 jobs:
   if_success:
     runs-on: ubuntu-latest
-    if: >-
-      github.event.state == 'success'      
+    # if: >-
+    #   github.event.state == 'success'
     steps:
       - env:
           DESCRIPTION: ${{ github.event.description }}
+          NAME: ${{ github.event.name}}
+          STATE: ${{ github.event.state }}
         run: |
-          echo The status is error or failed: $DESCRIPTION
+          echo DESCRIPTION: $DESCRIPTION          
+          echo NAME: $NAME
+          echo STATE: $STATE
