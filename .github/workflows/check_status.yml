@@ -1,3 +1,4 @@
+name: Check Status (success)
 on:
   status
 jobs:
