@@ -9,13 +9,17 @@ jobs:
     steps:
       - env:
           URL: ${{ github.event.check_run.html_url }}          
-          CHECK_SUITE: ${{ github.event.check_run.check_suite  }}
+          CHECK_SUITE_ID: ${{ github.event.check_run.check_suite.id  }}
+          CHECK_SUITE_URL: ${{ github.event.check_run.check_suite.url }}
+          CHECK_SUITE_CONCLUSION: ${{ github.event.check_run.check_suite.conclusion }}
           CONCLUSION: ${{ github.event.check_run.conclusion }}
           SHA: ${{ github.event.check_run.head_sha }}
           STATUS: ${{ github.event.check_run.status }}
         run: |
           echo URL: $URL          
-          echo CHECK_SUITE: $CHECK_SUITE          
+          echo CHECK_SUITE_ID: $CHECK_SUITE_ID    
+          echo CHECK_SUITE_URL: $CHECK_SUITE_URL      
+          echo CHECK_SUITE_CONCLUSION: $CHECK_SUITE_CONCLUSION
           echo SHA: $SHA
           echo CONCLUSION: $CONCLUSION
           echo STATUS: $STATUS
