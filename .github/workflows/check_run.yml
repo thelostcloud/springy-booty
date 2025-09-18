@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          DESCRIPTION: ${{ github.event.check_suite }}
+          DESCRIPTION: ${{ fromJson(github.event.check_suite) }}
           CONCLUSION: ${{ github.event.check_suite.conclusion  }}
           SHA: ${{ github.event.check_suite.head_sha }}
           STATUS: ${{ github.event.check_suite.status }}
