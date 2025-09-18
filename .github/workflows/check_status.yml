@@ -1,0 +1,12 @@
+on:
+  status
+jobs:
+  if_success:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.state == 'success'      
+    steps:
+      - env:
+          DESCRIPTION: ${{ github.event.description }}
+        run: |
+          echo The status is error or failed: $DESCRIPTION
